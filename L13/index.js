@@ -35,6 +35,7 @@
  * @returns {void} - нічого не повертає, включаю звуковий ефект на кнопку
  */
 const [ piano ] = document.getElementsByClassName('piano');
+console.log([piano])
 
 piano.addEventListener('click', (event) => {
     const targetElement = event.target;
@@ -55,15 +56,32 @@ let playNote = (key) => {
 //
 // 2. Покращемо наше фортепіано. Зробимо так щоб воно працювало при нажаття на клавішу в будь якій
 // точні нашого веб-додатку.
-// const keys = document.querySelectorAll('.key');
+const keys = document.querySelectorAll('.key');
 // const regulars = document.querySelectorAll('.key.white');
 // const sharps = document.querySelectorAll('.key.black');
+
 // const whites = ['a', 's', 'd', 'f', 'g', 'h', 'j'];
 // const blacks = ['w', 'e', 'r', 't', 'y'];
-// document.addEventListener('keydown', e => {
-//     // playNote(regulars[whiteKeyIndex]) - access white keys
-//     // playNote(sharps[blackKeyIndex]) - access black keys
-// });
+
+document.addEventListener('keydown', (event) => {
+    // const key = event.key;
+    // if (![...blacks, ...whites].includes(key)) {
+    //     event.stopPropagation();
+    //     return;
+    // }
+
+    [...keys].forEach((existinButton) => {
+        const text = existinButton.innerText;
+        if (text.toLocaleLowerCase() === (event.code[event.code.length - 1]).toLocaleLowerCase()) {
+            playNote(existinButton);
+            return;
+        }
+    })
+    // console.log(key);
+
+    // playNote(regulars[whiteKeyIndex]) - access white keys
+    // playNote(sharps[blackKeyIndex]) - access black keys
+});
 //
 //
 //
