@@ -2,9 +2,10 @@
 
   position: relative;
   margin: auto;
-  height: 50vw;
+  margin-top: 80px;
+  height: 40vw;
   /*to make the height and width responsive*/
-  width: 50vw;
+  width: 40vw;
   background: url(https://media.geeksforgeeks.org/wp-content/uploads/20210302161254/imgonlinecomuaCompressToSizeOmNATjUMFKw-300x300.jpg) no-repeat;
   /*setting our background image*/
   background-size: 100%;
